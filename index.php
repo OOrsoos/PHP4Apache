@@ -1,4 +1,6 @@
 <?php
+set_time_limit(0);
+
 if(isset($_POST['post1']) && isset($_POST['post2'])){
 	$exec = "sudo cfy deployments list | grep service | wc -l";
 	exec($exec,$out,$rcode);
@@ -7,7 +9,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$start_services = "sudo cfy install https://github.com/OOrsoos/registry/archive/master.zip -n services-deploy.yaml -i server_ip=18.219.80.131";
 		exec($start_services, $services_output, $rcode_services);
-		sleep(140);
+		sleep(180);
 		
 
 		$url2 = 'http://18.219.80.131:8762/api/simulator-service/run';
@@ -136,6 +138,35 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 	}
 	
 }else{
+
+
+	$url = 'http://18.219.80.131:8762/api/end-simulation-service/routine';
+
+		$context = stream_context_create(array(
+    		'http' => array(
+        	'method' => 'POST',
+        	'header' => ["Content-type: application/json",
+        				"Connection: close"],
+        	'content' => '',
+        	'timeout' => 60
+    	)
+		));
+
+		$resp = file_get_contents($url, FALSE, $context);
+
+	$url2 = 'http://18.219.80.131:8762/api/simulator-service/state/back/initial';
+
+		$context2 = stream_context_create(array(
+    		'http' => array(
+        	'method' => 'PUT',
+        	'header' => ["Content-type: application/json",
+        				"Connection: close"],
+        	'content' => '',
+        	'timeout' => 60
+    	)
+		));
+
+		$resp2 = file_get_contents($url2, FALSE, $context2);
 
 ?>
 <!DOCTYPE html>
