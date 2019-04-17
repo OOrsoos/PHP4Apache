@@ -76,7 +76,8 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$counter = 0;
 		$url2 = 'http://18.219.80.131:8762/api/cpu-service/queue/add';
 
-		while($counter < $_POST['post1']){
+		//while($counter < $_POST['post1']){
+		while($counter < 4){
 		$job = array( 'cpujob' => 'job'.$counter);
 		$context2 = stream_context_create(array(
     		'http' => array(
@@ -98,7 +99,8 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$counter = 0;
 		$url2 = 'http://18.219.80.131:8762/api/in-out-service/queue/add';
 
-		while($counter < $_POST['post2']){
+		//while($counter < $_POST['post2']){
+		while($counter < 4){
 		$job = array( 'iojob' => 'job'.$counter);
 		$context2 = stream_context_create(array(
     		'http' => array(
