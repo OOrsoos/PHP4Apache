@@ -9,7 +9,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$start_services = "sudo cfy install https://github.com/OOrsoos/registry/archive/master.zip -n services-deploy.yaml -i server_ip=18.219.80.131";
 		exec($start_services, $services_output, $rcode_services);
-		sleep(180);
+		sleep(125);
 		
 
 		$url2 = 'http://18.219.80.131:8762/api/simulator-service/run';
@@ -92,6 +92,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$resp3 = file_get_contents($url2, FALSE, $context2);
 
 		$counter = $counter + 1;
+		usleep(300000);
 		}
 
 		$counter = 0;
@@ -112,6 +113,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp3 = file_get_contents($url2, FALSE, $context2);
 		$counter = $counter + 1;
+		usleep(300000);
 		}
 
 
