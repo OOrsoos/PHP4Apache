@@ -177,7 +177,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 <html>
 <head>
 <style>
-input[type=text] {
+input[type=number] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
