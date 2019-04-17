@@ -93,7 +93,6 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$resp3 = file_get_contents($url2, FALSE, $context2);
 
 		$counter = $counter + 1;
-		usleep(300000);
 		}
 
 		$counter = 0;
@@ -115,7 +114,6 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp3 = file_get_contents($url2, FALSE, $context2);
 		$counter = $counter + 1;
-		usleep(300000);
 		}
 
 
@@ -134,8 +132,6 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$resp = file_get_contents($url, FALSE, $context);
 
 
-
-		sleep(1);
   		header("Location:jobs.php");
   		exit();
 
