@@ -76,8 +76,8 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$counter = 0;
 		$url2 = 'http://18.219.80.131:8762/api/cpu-service/queue/add';
 
-		//while($counter < $_POST['post1']){
-		while($counter < 4){
+		while($counter < $_POST['post1']){
+		//while($counter < 4){
 		$job = array( 'cpujob' => 'job'.$counter);
 		$context2 = stream_context_create(array(
     		'http' => array(
@@ -99,8 +99,8 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$counter = 0;
 		$url2 = 'http://18.219.80.131:8762/api/in-out-service/queue/add';
 
-		//while($counter < $_POST['post2']){
-		while($counter < 4){
+		while($counter < $_POST['post2']){
+		//while($counter < 4){
 		$job = array( 'iojob' => 'job'.$counter);
 		$context2 = stream_context_create(array(
     		'http' => array(
@@ -210,8 +210,8 @@ h1 { color: #111;
 <h1>Simulator</h1>
 <br>
 <form action="/index.php" method="post">
-  Jobs in CPU queue: <input type="text" name="post1"><br>
-  Jobs in I/O queue: <input type="text" name="post2"><br>
+  Jobs in CPU queue: <input type="number" name="post1"><br>
+  Jobs in I/O queue: <input type="number" name="post2"><br>
   <input type="submit" value="Submit">
 </form>
 
