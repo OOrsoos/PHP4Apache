@@ -7,12 +7,12 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 	if ($out[0] < 1) {
 
-		$start_services = "sudo cfy install https://github.com/OOrsoos/registry/archive/master.zip -n services-deploy.yaml -i server_ip=18.219.80.131";
+		$start_services = "sudo cfy install https://github.com/OOrsoos/registry/archive/master.zip -n services-deploy.yaml -i server_ip=18.224.128.142";
 		exec($start_services, $services_output, $rcode_services);
 		sleep(125);
 		
 
-		$url2 = 'http://18.219.80.131:8762/api/simulator-service/run';
+		$url2 = 'http://18.224.128.142:8762/api/simulator-service/run';
 
 		$context2 = stream_context_create(array(
     		'http' => array(
@@ -27,7 +27,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$resp2 = file_get_contents($url2, FALSE, $context2);
 
 		$counter = 0;
-		$url2 = 'http://18.219.80.131:8762/api/cpu-service/queue/add';
+		$url2 = 'http://18.224.128.142:8762/api/cpu-service/queue/add';
 
 		while($counter < $_POST['post1']){
 		$job = array( 'cpujob' => 'job'.$counter);
@@ -48,7 +48,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		}
 
 		$counter = 0;
-		$url2 = 'http://18.219.80.131:8762/api/in-out-service/queue/add';
+		$url2 = 'http://18.224.128.142:8762/api/in-out-service/queue/add';
 
 		while($counter < $_POST['post2']){
 		$job = array( 'iojob' => 'job'.$counter);
@@ -74,7 +74,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 	} else {
 
 		$counter = 0;
-		$url2 = 'http://18.219.80.131:8762/api/cpu-service/queue/add';
+		$url2 = 'http://18.224.128.142:8762/api/cpu-service/queue/add';
 
 		while($counter < $_POST['post1']){
 		//while($counter < 4){
@@ -92,11 +92,11 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp3 = file_get_contents($url2, FALSE, $context2);
 
-		$counter = $counter + 1;
+		$counter++;
 		}
 
 		$counter = 0;
-		$url2 = 'http://18.219.80.131:8762/api/in-out-service/queue/add';
+		$url2 = 'http://18.224.128.142:8762/api/in-out-service/queue/add';
 
 		while($counter < $_POST['post2']){
 		//while($counter < 4){
@@ -113,11 +113,11 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		));
 
 		$resp3 = file_get_contents($url2, FALSE, $context2);
-		$counter = $counter + 1;
+		$counter++;
 		}
 
 
-		$url = 'http://18.219.80.131:8762/api/simulator-service/run';
+		$url = 'http://18.224.128.142:8762/api/simulator-service/run';
 
 		$context = stream_context_create(array(
     		'http' => array(
@@ -139,8 +139,8 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 	
 }else{
 
-
-	$url = 'http://18.219.80.131:8762/api/end-simulation-service/routine';
+/*
+	$url = 'http://18.224.128.142:8762/api/end-simulation-service/routine';
 
 		$context = stream_context_create(array(
     		'http' => array(
@@ -154,7 +154,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp = file_get_contents($url, FALSE, $context);
 
-	$url2 = 'http://18.219.80.131:8762/api/simulator-service/state/back/initial';
+	$url2 = 'http://18.224.128.142:8762/api/simulator-service/state/back/initial';
 
 		$context2 = stream_context_create(array(
     		'http' => array(
@@ -168,12 +168,14 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp2 = file_get_contents($url2, FALSE, $context2);
 
+*/
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <style>
-input[type=number] {
+input[type=text] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -206,8 +208,8 @@ h1 { color: #111;
 <h1>Simulator</h1>
 <br>
 <form action="/index.php" method="post">
-  Jobs in CPU queue: <input type="number" name="post1"><br>
-  Jobs in I/O queue: <input type="number" name="post2"><br>
+  Jobs in CPU queue: <input type="text" name="post1"><br>
+  Jobs in I/O queue: <input type="text" name="post2"><br>
   <input type="submit" value="Submit">
 </form>
 

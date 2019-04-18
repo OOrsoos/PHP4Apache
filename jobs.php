@@ -72,10 +72,10 @@ input[type=submit] {
 </head>
 <body>
 <?php
-	$cpu_queue = 'http://18.219.80.131:8762/api/cpu-service/queue/size';
-	$cpu_center = 'http://18.219.80.131:8762/api/cpu-service/service/size';
-	$io_queue = 'http://18.219.80.131:8762/api/in-out-service/queue/size';
-	$io_center = 'http://18.219.80.131:8762/api/in-out-service/service/size';
+	$cpu_queue = 'http://18.224.128.142:8762/api/cpu-service/queue/size';
+	$cpu_center = 'http://18.224.128.142:8762/api/cpu-service/service/size';
+	$io_queue = 'http://18.224.128.142:8762/api/in-out-service/queue/size';
+	$io_center = 'http://18.224.128.142:8762/api/in-out-service/service/size';
 
 
 
