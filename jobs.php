@@ -114,8 +114,8 @@ input[type=submit] {
 <form method="get" action="jobs.php">
     <input type="submit" value="Refresh jobs counter">
 </form>
-<form method="post" action="index.php">
+<!--<form method="post" action="index.php">
     <input type="submit" value="End Simulation">
-</form>
+</form> -->
 </body>
 </html>
