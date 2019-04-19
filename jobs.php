@@ -72,6 +72,8 @@ input[type=submit] {
 </head>
 <body>
 <?php
+
+/*
 	$cpu_queue = 'http://18.224.128.142:8762/api/cpu-service/queue/size';
 	$cpu_center = 'http://18.224.128.142:8762/api/cpu-service/service/size';
 	$io_queue = 'http://18.224.128.142:8762/api/in-out-service/queue/size';
@@ -101,6 +103,8 @@ input[type=submit] {
 	sleep(0.3);
 	$jobs_in_io_center = file_get_contents($io_center, FALSE, $context2);
 	sleep(0.3);
+
+*/
 	echo $p1_prefix.$jobs_in_cpu_queue.$p_suffix;
 	echo $p2_prefix.$jobs_in_cpu_center.$p_suffix;
 	echo $p3_prefix.$jobs_in_io_queue.$p_suffix;

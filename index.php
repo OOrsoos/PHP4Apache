@@ -11,7 +11,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		exec($start_services, $services_output, $rcode_services);
 		sleep(125);
 		
-
+/*
 		$url2 = 'http://18.224.128.142:8762/api/simulator-service/run';
 
 		$context2 = stream_context_create(array(
@@ -26,10 +26,12 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp2 = file_get_contents($url2, FALSE, $context2);
 
+*/
 		$counter = 0;
 		$url2 = 'http://18.224.128.142:8762/api/cpu-service/queue/add';
 
 		while($counter < $_POST['post1']){
+/*
 		$job = array( 'cpujob' => 'job'.$counter);
 		$context2 = stream_context_create(array(
     		'http' => array(
@@ -44,10 +46,13 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp3 = file_get_contents($url2, FALSE, $context2);
 
+*/
 		$counter = $counter + 1;
 		}
 
 		$counter = 0;
+
+/*
 		$url2 = 'http://18.224.128.142:8762/api/in-out-service/queue/add';
 
 		while($counter < $_POST['post2']){
@@ -64,6 +69,8 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		));
 
 		$resp3 = file_get_contents($url2, FALSE, $context2);
+
+*/
 		$counter = $counter + 1;
 		}
 
@@ -77,6 +84,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		$url2 = 'http://18.224.128.142:8762/api/cpu-service/queue/add';
 
 		while($counter < $_POST['post1']){
+/*
 		//while($counter < 4){
 		$job = array( 'cpujob' => 'job'.$counter);
 		$context2 = stream_context_create(array(
@@ -92,6 +100,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp3 = file_get_contents($url2, FALSE, $context2);
 
+*/
 		$counter++;
 		}
 
@@ -100,6 +109,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		while($counter < $_POST['post2']){
 		//while($counter < 4){
+/*
 		$job = array( 'iojob' => 'job'.$counter);
 		$context2 = stream_context_create(array(
     		'http' => array(
@@ -113,10 +123,11 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 		));
 
 		$resp3 = file_get_contents($url2, FALSE, $context2);
+*/
 		$counter++;
 		}
 
-
+/*
 		$url = 'http://18.224.128.142:8762/api/simulator-service/run';
 
 		$context = stream_context_create(array(
@@ -131,7 +142,7 @@ if(isset($_POST['post1']) && isset($_POST['post2'])){
 
 		$resp = file_get_contents($url, FALSE, $context);
 
-
+*/
   		header("Location:jobs.php");
   		exit();
 
